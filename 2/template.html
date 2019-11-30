@@ -75,6 +75,38 @@
       }
 
     }
+
+    $(document).ready(function(){
+        $('#cards-box').html('');
+        listing();
+      });
+
+      function listing() {
+        $.ajax({
+          type: "GET",
+          url: "http://spartacodingclub.shop/post",
+          data: {},
+          success: function(response){
+             let articles = response['articles'];
+             for (let i = 0; i < articles.length; i++) {
+                make_card(articles[i]['comment'],articles[i]['desc'],articles[i]['image'],articles[i]['title'],articles[i]['url'])
+             }
+          }
+        })
+      }
+
+      function make_card(comment, desc, image, title, url) {
+        let temp_html = '<div class="card">\
+          <img class="card-img-top" src="'+image+'" alt="Card image cap">\
+          <div class="card-body">\
+            <a href="'+url+'" target="_blank" class="card-title">'+title+'</a>\
+            <p class="card-text">'+desc+'</p>\
+            <p class="card-text comment">'+comment+'</p>\
+          </div>\
+        </div>';
+        $('#cards-box').append(temp_html);
+      }
+      
   </script>
 
 </head>
@@ -101,7 +133,7 @@
         <button type="button" class="btn btn-primary" onclick="hey()">기사저장</button>
       </div>
     </div>
-    <div class="card-columns">
+    <div class="card-columns" id="cards-box">
       <div class="card">
         <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
         <div class="card-body">
