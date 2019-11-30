@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bootstrap Practice</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700|Shrikhand&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+  
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .font_Shrikhand {
+    font-family: 'Shrikhand', cursive;
+    font-size: 25px;
+  }
+  
+  .font_RobotoSlab {
+    font-family: 'Roboto Slab', serif;
+  }
+  
+  .wrap {
+    width: 100%;
+    /*max-width: 1200px;*/
+    margin: auto;
+  }
+  .wrap_main {
+    position: relative;
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+    height: 600px;
+    padding: 20px !important;
+    background-image: url('https://cdn.pixabay.com/photo/2014/07/31/22/50/photographer-407068_960_720.jpg');
+    background-size: cover; 
+  }
+  
+  .wrap_main nav {
+    padding: 20px 36px 20px 36px;
+  }
+  
+
+  .main_text {
+
+    width: 100%;
+    height: 470px;
+    padding-right: 20px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-weight: bold;
+  }
+  
+  .deal_bg {
+    position: absolute;
+    top: 950px;
+    z-index: -100;
+    width: 100%;
+    height: 260px;
+    background: #fae1ca;
+  }
+  
+  
+  .wrap_deal {
+    width: 1200px;
+    height: auto;
+    margin: 110px auto;
+  }
+  
+  .wrap_deal .w-50 {
+    padding: 18px;
+  }
+  
+  .hotdeal-icon {
+     display: inline-block; 
+     width: 100px; 
+     height: 100px; 
+     background: #fd637d;
+     position: absolute;
+     border-radius: 100px;
+     left: 70px;
+     z-index: 10;
+     color: white;
+     font-size: 23px;
+     padding-top: 20px;
+     text-align: center;
+     line-height: 30px;
+     
+     
+  }
+  
+  @media (max-width: 991.98px) { 
+    .wrap_deal {
+      width: 100%;
+    }
+    .deal-first {
+      width: 100%;
+    }
+    
+    .deal-second {
+      width: 100%;
+      height: auto !important;
+      margin-top: 30px;
+    }
+    
+    .deal-second>div {
+      padding-bottom: 50px;
+    }
+  
+  }
+  
+  
+  .deal-form {
+    width: 100%;
+    padding: 2.5em;
+  }
+  
+  .deal-form ul {
+    list-style: none; 
+    margin: 0; 
+    padding: 0;
+  }
+  
+  .deal-form ul li {
+    float: left;
+  }
+  
+  .deal-form p {
+    padding: 20px 25px;
+    height: 40px;
+    line-height: 40px;
+  }
+  
+  .deal-form .form-control {
+    width: 60%;
+    float: left;
+  }
+  
+  .deal-form label {
+    float: left;
+    width: 35%;
+    font-size: 1.3em;
+    height: 35px;
+    line-height: 35px;
+  }
+
+  .deal-form h1, deal-form p {
+    padding: 10px;
+  }
+  
+  .deal-img {
+    width: 400px;
+    height: 400px;
+    box-sizing: border-box;
+    border: 13px solid #9d8772;
+    
+    border-radius: 1000px;
+    
+  }
+  
+  .wrap_card {
+    margin: auto;
+    max-width: 1200px;
+    padding-top:40px;
+    display: flex;
+  }
+  
+  .wrap_card .card-body {
+    padding: 15px;
+  }
+  
+  .wrap_bottom {
+    width: 100%;
+    height: 200px;
+    margin-top: 130px;
+    background: #888;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+
+
+</head>
+
+
+<body>
+
+<div class="wrap"> 
+  <div class="wrap_main">
+   
+    <nav class="navbar navbar-expand-lg navbar-light position-absolute fixed-top">
+      <a class="navbar-brand font_Shrikhand" href="#">GoAnywhere</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tours</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Trip</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="main_text font_RobotoSlab">
+      <h1 class="display-4" style="font-weight: bold;">Explore</h1>
+      <h2 style="font-weight: bold; font-size: 30px; padding-top:10px;">Travel Wherever You Want</h2>
+      <div style="padding-top: 20px;"><a class="btn btn-primary btn-lg" href="#" role="button">Book Now</a></div>
+    </div>
+    
+  </div>
+  <div class="deal_bg"></div>
+  <div class="wrap_deal">
+    <div class="row">
+      <div class="col-lg-5 text-center deal-first">
+        <h2 style="padding-bottom:25px; font-weight: bold;">Limited Time Offer</h2>
+        <span class="hotdeal-icon font_Shrikhand">HOT<br>DEAL</span>
+        <img src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="deal-img">
+      </div>
+      <div class="col-lg-7 deal-form deal-second" style="height: 500px;">
+        <div style="width: 100%; height: 100%; background-color: white; border: 5px solid #9d8772;">
+          <h1 style="text-align: center; font-size: 2em; background: #9d8772; color: white; border-bottom: 5px solid #9d8772;">Fly to Vaitāpē, French Polynesia Now!</h1>
+          <form>
+            <p>
+              <label for="exampleFormControlInput1">》 NAME</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Your Name">
+            </p>
+            <p>
+              <label for="exampleFormControlInput1">》 EMAIL ADDRESS</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </p>
+            <p>
+              <label for="exampleFormControlSelect1">》 TRAVEL OPTION</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Flights Only</option>
+                <option>Flights + Hotel</option>
+                <option>Flights + Hotel + Activities</option>
+              </select>
+            </p>
+            <p>
+              <label for="exampleFormControlInput1">》 DATE</label>
+              <span style="display: inline; float: left; padding-right:5px;">From</span>
+              <span style="display: inline; float: left;"><input id="datepicker" width="140"/></span>
+              <span style="display: inline; float: left; padding: 0 5px;">To</span>
+              <span style="display: inline; float: left;"><input id="datepicker2" width="140"/></span>
+              <script>
+                  $('#datepicker').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+                  $('#datepicker2').datepicker({
+                      uiLibrary: 'bootstrap4'
+                  });
+              </script>
+            </p>
+            <p class="mt-4">
+              <span style="font-size: 30px; font-weight: 500; color: firebrick;" class="price-text">Price : $ 2430 <font style="font-size: 20px;">(VAT included)</font> </span>
+              <button type="submit" class="btn btn-primary mr-4" style="width: 30%; height: 50px; font-size: 20px; font-weight: bold; float: right;">BOOK NOW</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <h1 class="text-center pb-3"><span style="display: inline-block; height: 60px; border-bottom: 5px solid #888;">Trips for Vacation</span></h1>
+  <div class="wrap_card">
+     <!-- Page Features -->
+    <div class="row text-center px-4">
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top h-50" src="https://cdn.pixabay.com/photo/2016/01/30/05/11/sydney-opera-house-1169155_960_720.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Sydney, Australia</h4>
+            <p class="card-text mt-4">6 Days 5 Nights  All Tour Package</p>
+            <p class="card-text text-right mt-2 mr-2">From <span style="font-size: 30px;">$3180</span></p>
+          </div>          
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top h-50" src="https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704__340.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Malé, Maldives</h4>
+            <p class="card-text mt-4">7 Days 6 Nights  Flights &amp; Hotel</p>
+            <p class="card-text text-right mt-2 mr-2">From <span style="font-size: 30px;">$5420</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top h-50" src="https://cdn.pixabay.com/photo/2016/09/08/23/08/florence-1655830_960_720.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Florence, Italy</h4>
+            <p class="card-text mt-4">5 Days 4 Nights  Flights &amp; Hotel</p>
+            <p class="card-text text-right mt-2 mr-2">From <span style="font-size: 30px;">$2890</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top h-50" src="https://cdn.pixabay.com/photo/2016/09/15/01/57/chiang-mai-1670926_960_720.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Chiang Mai, Thailand</h4>
+            <p class="card-text mt-4">4 Days 3 Nights  All Tour Package</p>
+            <p class="card-text text-right mt-2 mr-2">From <span style="font-size: 30px;">$610</span></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  
+  
+  
+  <div class="wrap_bottom">
+    <p>This page was generated by SC for the purpose of practising Bootstrap. </p>
+  
+  
+  </div>
+  
+
+</div>
+</body>
+</html>
