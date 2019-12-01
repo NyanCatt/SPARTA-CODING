@@ -20,14 +20,19 @@
       function q1() {
         // 여기에 코드를 입력하세요
 
-        //
+        
 
         $.ajax({
           type: "GET",
           url: "https://api.thedogapi.com/v1/images/search",
           data: {},
           success: function(response){
-          //$('#img-cat').attr('src','')
+
+            //1. 원하는 데이터를 저장한다
+            let image_info = response[0]['url'];
+            //2. 이미지 출력
+            $('#img-cat').attr('src',image_info);
+
 
           }
 
