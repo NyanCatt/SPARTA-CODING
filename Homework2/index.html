@@ -88,37 +88,6 @@
 <script type="text/javascript">
 	function submit_Order() {
 
-		//1. 기존의 table html 지우기
-		$('table tbody').html('');
-
-		$.ajax({
-            type: "GET",
-            url: 'http://spartacodingclub.shop/order',
-            data: {},
-            success: function(response){
-        	  //2. 데이터 저장하기
-        	  let order_info = response['orders'];
-
-        	  for(i=0;i<order_info.length;i++) {
-
-        	  	let name = order_info[i]['name'];
-        	  	let count = order_info[i]['count'];
-        	  	let address = order_info[i]['address'];
-        	  	let phone = order_info[i]['phone'];
-        	  	let temp_html = '<tr>\
-							      <th scope="row">' + name + '</th>\
-							      <td>' + count + '</td>\
-							      <td>' + address + '</td>\
-							      <td>' + phone + '</td>\
-							    </tr>'
-
-				$('table tbody').append(temp_html);
-
-               }
-            }
-        })
-
-
     if($('#exampleFormControlInput1').val()=="") {
       alert('Please fill in your name.');
       return false;
@@ -132,11 +101,44 @@
       alert('Please select the quantity of the items you\'d like to order.');
       return false;
     } else {
+      load_Ajax();
       return true;
     }
 
 
 	}
+
+  function load_Ajax() {
+    //1. 기존의 table html 지우기
+    $('table tbody').html('');
+
+    $.ajax({
+            type: "GET",
+            url: 'http://spartacodingclub.shop/order',
+            data: {},
+            success: function(response){
+            //2. 데이터 저장하기
+            let order_info = response['orders'];
+
+            for(i=0;i<order_info.length;i++) {
+
+              let name = order_info[i]['name'];
+              let count = order_info[i]['count'];
+              let address = order_info[i]['address'];
+              let phone = order_info[i]['phone'];
+              let temp_html = '<tr>\
+                    <th scope="row">' + name + '</th>\
+                    <td>' + count + '</td>\
+                    <td>' + address + '</td>\
+                    <td>' + phone + '</td>\
+                  </tr>'
+
+        $('table tbody').append(temp_html);
+
+               }
+            }
+        })
+    }
 	
 
 </script>
