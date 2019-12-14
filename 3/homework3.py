@@ -31,6 +31,7 @@ for song in songs:
     }
 
     db.music.insert_one(doc)
+    #db.dbname.insert_one(dictionary형태의 무엇)
 
 
 
