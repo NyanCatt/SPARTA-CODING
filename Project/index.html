@@ -12,7 +12,30 @@ body {
 	padding: 0;
 }
 
+.input_text {
+	height: 35px;
+	border-radius: 10px;
+	border: 2px solid #888;
+	text-indent: 0.5em;
+	font-size: 20px;
+	margin-right: 0.5em;
+}
+
+.btn {
+	height: 43px;
+	border: 0;
+	border-radius: 10px;
+	font-size: 1.3em;
+	color: white;
+}
+
 /* Wrap, Bgcolor, Floating button : Start */
+
+.wrap {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
 
 .bgColor {
 	width: 100%;
@@ -20,29 +43,34 @@ body {
 	padding: 30px 0;
 }
 
-.wrap {
+.center {
 	position: relative;
 	margin: 0 auto;
 	width: 800px;
+	max-width: 800px;
 	height: 1300px;
 	background: white;
 	border-radius: 10px;
 	border: 1px solid #DDD;
 }
 
-.container_Btn {
-	width: 100%;
-	height: 200px;
-	position: absolute;
-}
-
 .btn_Posting {
 	position: fixed;
-	width: 30px;
-	height: 30px;
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
 	background: pink;
 	bottom: 30px;
-	right: 30px;
+	left: 50%;
+	margin-left: 290px;
+	border: 0;
+	border-radius: 50px;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+
 }
 
 
@@ -67,29 +95,116 @@ body {
 
 .search_Book {
 	width: 70%;
-	height: 35px;
-	border-radius: 10px;
-	border: 2px solid #888;
-	text-indent: 0.5em;
-	margin-right: 1em;
 }
 
 .btn_Search {
 	width: 60px;
-	height: 43px;
-	border: 0;
-	border-radius: 10px;
 	background: green;
-	color: white;
-	font-size: 1.3em;
-	vertical-align: middle;
 }
+	
 
 
 /* Search Book : End */
 
 
+/* Book search API page : Start */
+
+.window_Bookapi {
+	display: none;
+	position: absolute;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+
+}
+
+.center_Bookapi {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	height: 500px;
+	background: white;
+	border-radius: 10px;
+	border: 0;
+	padding: 30px;
+}
+
+.btn_Close {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50px;
+	border: 2px solid #000;
+	text-align: center;
+	cursor: pointer;
+}
+
+.search_Bookapi {
+	width: 80%;
+}
+
+.btn_Bookapi {
+	background: skyblue;
+}
+
+
+/* Book search API page : End */
+
+
 </style>
+
+
+
+
+<body>
+
+
+<div class="wrap">
+
+<!-- BOOK SEARCH PAGE : START -->
+<div class="window_Bookapi">
+	<div class="center_Bookapi">
+		<span class="btn_Close" onclick="close_Bookapi()">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+		</span>
+		<!-- <h2>I've read...</h2> -->
+		<p>
+			<input type="text" class="search_Bookapi input_text" placeholder="Search the book you've read by title or author">
+			<button class="btn_Bookapi btn">Search</button>
+		</p>
+
+	</div>
+</div>
+<!-- BOOK SEARCH PAGE : END -->
+
+
+<div class="bgColor">	
+<div class="center">
+
+	<div class="btn_Posting" onclick="posting()">WRITE</div>
+	<div class="wrap_Search">
+		<h1>What are you reading?</h1>
+		<p style="text-align: center;">
+			<input type="text" class="search_Book input_text">
+			<button class="btn_Search btn">GO</button>
+		</p>
+
+	</div>
+
+</div>
+</div>
+
+
+</div>
 
 <script type="text/javascript">
 	/*window.onload = testhi();	//wrap_Search h1 padding
@@ -99,25 +214,20 @@ body {
 		alert(hi);
 	}*/
 
+	let book_api = document.querySelector('.window_Bookapi').style;
+
+	function posting(){
+		book_api.display = 'block';
+	}
+
+	function close_Bookapi(){
+		book_api.display = 'none';
+	}
+
+
+
 </script>
 
-
-<body>
-
-<div class="bgColor">
-<div class="wrap">
-	<div class="container_Btn"><div class="btn_Posting"></div></div>
-	<div class="wrap_Search">
-		<h1>What are you reading?</h1>
-		<p style="text-align: center;">
-			<input type="text" class="search_Book" id="hi2">
-			<button class="btn_Search">GO</button>
-		</p>
-
-	</div>
-
-</div>
-</div>
 
 
 </body>
